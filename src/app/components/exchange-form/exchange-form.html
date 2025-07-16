@@ -1,0 +1,78 @@
+<div class="container">
+  <img src="assets/logo.png" alt="Action Labs" class="logo" />
+  <h1>BRL EXCHANGE RATE</h1>
+
+  <form class="form-container" (ngSubmit)="getRates()">
+    <input
+      type="text"
+      [(ngModel)]="currency"
+      name="currency"
+      class="currency-input"
+      placeholder="Enter the currency code"
+      required
+    />
+    <button type="submit" class="submit-button">EXCHANGE RESULT</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="exchangeResult" class="result-container">
+    <div class="result-header">
+      <p class="result-title">Exchange rate now</p>
+      <p class="result-symbol">
+        {{ exchangeResult.toSymbol }}/{{ exchangeResult.fromSymbol }}
+      </p>
+    </div>
+    <p class="result-date">
+      {{ exchangeResult.lastUpdatedAt | date : "dd/MM/yyyy - HH:mm" }}
+    </p>
+    <div class="result-value">
+      R$ {{ exchangeResult.exchangeRate | number : "1.2-2" }}
+    </div>
+  </div>
+
+  <div class="accordion-wrapper">
+    <mat-accordion class="custom-accordion" *ngIf="exchangeHistory?.length">
+      <mat-expansion-panel #panel="matExpansionPanel" hideToggle>
+        <mat-expansion-panel-header class="custom-header">
+          <span class="header-text">LAST 30 DAYS</span>
+          <span class="header-spacer"></span>
+          <span class="header-icon">
+            {{ panel.expanded ? "−" : "+" }}
+          </span>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let day of exchangeHistory" class="history-item">
+          <div class="history-date">{{ day.date | date : "dd/MM/yyyy" }}</div>
+          <div class="history-data">
+            <div class="row">
+              <div>OPEN: R$ {{ day.open | number : "1.4-4" }}</div>
+              <div>HIGH: R$ {{ day.high | number : "1.4-4" }}</div>
+            </div>
+            <div class="row">
+              <div>CLOSE: R$ {{ day.close | number : "1.4-4" }}</div>
+              <div>LOW: R$ {{ day.low | number : "1.4-4" }}</div>
+            </div>
+            <div class="row diff-row">
+              <span class="diff-label">CLOSE DIFF (%):</span>
+              <span
+                [ngClass]="{
+                  positive: day.closeDiffPercent > 0,
+                  negative: day.closeDiffPercent < 0
+                }"
+              >
+                {{ day.closeDiffPercent > 0 ? "+" : ""
+                }}{{ day.closeDiffPercent | number : "1.2-2" }}%
+                <span *ngIf="day.closeDiffPercent > 0">↑</span>
+                <span *ngIf="day.closeDiffPercent < 0">↓</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <footer class="footer">Copyright 2022 - Action Labs</footer>
+</div>

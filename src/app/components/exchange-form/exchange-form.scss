@@ -1,0 +1,223 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  min-height: 97vh;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.logo {
+  width: 240px;
+  margin-top: 1rem;
+}
+
+h1 {
+  color: #00b4ff;
+  margin: 0rem 0 1rem;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.currency-input {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f3f3;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: #00b4ff;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  min-width: 630px !important;
+}
+
+.submit-button:hover {
+  background-color: #009cd6;
+}
+
+.footer {
+  font-size: 0.8rem;
+  color: white;
+  background-color: #00b4ff;
+  width: 100%;
+  padding: 0.5rem 0;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+}
+
+.result-container {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+  margin: 0;
+}
+
+.result-symbol {
+  color: #00b4ff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.result-date {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: left;
+  margin: 0;
+}
+
+.result-value {
+  background-color: #e6f7ff;
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 1.2rem;
+  border-radius: 8px;
+  color: #00b4ff;
+  text-align: center;
+  width: 100%;
+}
+
+.accordion-wrapper {
+  width: 100%;
+  max-width: 630px;
+  margin: 1rem;
+  margin-left: 3rem;
+}
+
+.custom-accordion {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.custom-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.custom-header .header-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.custom-header .header-spacer {
+  flex: 1;
+}
+
+.custom-header .header-icon {
+  font-size: 1.5rem;
+  color: #00b4ff;
+  font-weight: bold;
+}
+
+.history-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.history-item .history-date {
+  font-weight: bold;
+  color: #00b4ff;
+  margin-bottom: 0.5rem;
+}
+
+.history-item .history-data {
+  font-size: 0.95rem;
+  line-height: 1.6rem;
+}
+
+.history-item .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.history-item .diff-row {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.history-item .positive {
+  color: green;
+}
+
+.history-item .negative {
+  color: red;
+}
+
+.mat-expansion-panel {
+  background: none;
+  box-shadow: none;
+}
+
+.mat-expansion-panel-content {
+  padding: 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+
+@media (min-width: 768px) {
+  .result-value {
+    font-size: 2.2rem;
+    padding: 1.2rem;
+  }
+
+  .custom-header {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .custom-header .header-icon {
+    font-size: 1.8rem;
+  }
+}
